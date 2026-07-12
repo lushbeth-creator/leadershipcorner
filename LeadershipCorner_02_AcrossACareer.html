@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leadership Corner - Across a Career</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  .lc-wrap {
+    padding: 6px 6px 24px 6px;
+  }
+  .lc-section-title {
+    color: #1B2F5B;
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 8px;
+  }
+  .lc-section-lead {
+    color: #444;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    max-width: 700px;
+  }
+
+  .lc-progress-track {
+    width: 100%;
+    height: 6px;
+    background: #d8dce8;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .lc-progress-fill {
+    height: 100%;
+    width: 33.33%;
+    background: #59A398;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .lc-stage {
+    border: 1px solid #d8dce8;
+    border-radius: 8px;
+    background: linear-gradient(160deg, #ffffff 0%, #e8edf8 100%);
+    padding: 20px 22px 22px 22px;
+    transition: transform 0.18s ease, background 0.18s ease;
+    display: none;
+  }
+  .lc-stage.active { display: block; }
+  .lc-stage:hover {
+    background: linear-gradient(160deg, #ffffff 0%, #DAF3EF 100%);
+    transform: scale(1.02);
+  }
+  .lc-stage-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #5D70AE;
+    margin-bottom: 10px;
+  }
+  .lc-stage-eyebrow {
+    color: #59A398;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
+  }
+  .lc-stage-title {
+    color: #1B2F5B;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .lc-stage-row {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .lc-stage-row:last-child { margin-bottom: 0; }
+  .lc-stage-row b { color: #5D70AE; }
+
+  .lc-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .lc-step-label {
+    color: #444;
+    font-size: 12px;
+  }
+  .lc-next-btn {
+    background: #59A398;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .lc-next-btn:hover {
+    background: #5D70AE;
+    transform: scale(1.03);
+  }
+</style>
+</head>
+<body>
+<div class="lc-wrap">
+
+  <div class="lc-section-title">What This Looks Like at Each Stage</div>
+  <div class="lc-section-lead">
+    The coaching relationship changes shape as a Pilot matures, but the check-ins never stop.
+  </div>
+
+  <div class="lc-progress-track">
+    <div class="lc-progress-fill" id="lc-progress-fill"></div>
+  </div>
+
+  <div class="lc-stage active" data-step="1">
+    <div class="lc-stage-dot"></div>
+    <div class="lc-stage-eyebrow">First 4 Months</div>
+    <div class="lc-stage-title">Rookie Pilot</div>
+    <div class="lc-stage-row"><b>Check-ins:</b> frequent, structured around In-Flight Training milestones.</div>
+    <div class="lc-stage-row"><b>Accountability:</b> curriculum, assignments, and Learning Lift-Off attendance are complete, not just started.</div>
+  </div>
+
+  <div class="lc-stage" data-step="2">
+    <div class="lc-stage-dot"></div>
+    <div class="lc-stage-eyebrow">First Year</div>
+    <div class="lc-stage-title">Ramping</div>
+    <div class="lc-stage-row"><b>Check-ins:</b> weekly, against their production targets and goals.</div>
+    <div class="lc-stage-row"><b>Accountability:</b> activity and pipeline health, with honest conversations when either stalls.</div>
+  </div>
+
+  <div class="lc-stage" data-step="3">
+    <div class="lc-stage-dot"></div>
+    <div class="lc-stage-eyebrow">Ongoing</div>
+    <div class="lc-stage-title">Tenured Pilot</div>
+    <div class="lc-stage-row"><b>Check-ins:</b> regular, even when things look fine on paper.</div>
+    <div class="lc-stage-row"><b>Accountability:</b> catching drift early, before it becomes a pattern.</div>
+    <div class="lc-stage-row"><b>Growth:</b> hitting the minimum isn't the ceiling. Push toward Top Gun status.</div>
+  </div>
+
+  <div class="lc-nav">
+    <span class="lc-step-label" id="lc-step-label">Step 1 of 3</span>
+    <button class="lc-next-btn" id="lc-next-btn" onclick="lcNextStep()">Next</button>
+  </div>
+
+</div>
+
+<script>
+  var lcTotalSteps = 3;
+  var lcCurrentStep = 1;
+
+  function lcRender() {
+    var stages = document.querySelectorAll('.lc-stage');
+    stages.forEach(function(stage) {
+      if (parseInt(stage.getAttribute('data-step')) === lcCurrentStep) {
+        stage.classList.add('active');
+      } else {
+        stage.classList.remove('active');
+      }
+    });
+    document.getElementById('lc-progress-fill').style.width = (lcCurrentStep / lcTotalSteps * 100) + '%';
+    document.getElementById('lc-step-label').textContent = 'Step ' + lcCurrentStep + ' of ' + lcTotalSteps;
+    document.getElementById('lc-next-btn').textContent = (lcCurrentStep === lcTotalSteps) ? 'Restart' : 'Next';
+  }
+
+  function lcNextStep() {
+    if (lcCurrentStep >= lcTotalSteps) {
+      lcCurrentStep = 1;
+    } else {
+      lcCurrentStep++;
+    }
+    lcRender();
+  }
+</script>
+</body>
+</html>
