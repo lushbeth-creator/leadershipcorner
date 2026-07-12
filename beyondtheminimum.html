@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leadership Corner - Beyond the Minimum</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  .lc-wrap {
+    padding: 6px 6px 24px 6px;
+  }
+  .lc-section-title {
+    color: #1B2F5B;
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 8px;
+  }
+  .lc-section-lead {
+    color: #444;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+
+  .lc-checklist {
+    border: 1px solid #d8dce8;
+    border-radius: 8px;
+    background: linear-gradient(160deg, #ffffff 0%, #e8edf8 100%);
+    padding: 8px 22px 12px 22px;
+  }
+  .lc-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 4px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.55;
+    border-bottom: 1px solid #d8dce8;
+    cursor: pointer;
+    user-select: none;
+  }
+  .lc-check-item:last-child { border-bottom: none; }
+
+  .lc-check-box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #A6B3D5;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .lc-check-box svg {
+    width: 11px;
+    height: 11px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .lc-check-item.checked .lc-check-box {
+    background: #59A398;
+    border-color: #59A398;
+  }
+  .lc-check-item.checked .lc-check-box svg {
+    opacity: 1;
+  }
+
+  .lc-clear-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 4px 4px 4px;
+  }
+  .lc-clear-btn {
+    background: transparent;
+    color: #5D70AE;
+    border: 1px solid #A6B3D5;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .lc-clear-btn:hover {
+    background: linear-gradient(160deg, #ffffff 0%, #DAF3EF 100%);
+    transform: scale(1.03);
+  }
+</style>
+</head>
+<body>
+<div class="lc-wrap">
+
+  <div class="lc-section-title">From Steady to Top Gun</div>
+  <div class="lc-section-lead">
+    A Tenured Pilot hitting their goals and minimum is doing fine. Fine isn't the ceiling. Use
+    this list to find out whether they're actually plugged in, or just coasting on what already
+    works. Click a line to check it off, click again to clear it.
+  </div>
+
+  <div class="lc-checklist" id="lc-checklist-03">
+    <div class="lc-check-list-items">
+    <div class="lc-check-item" onclick="this.classList.toggle('checked')">
+      <span class="lc-check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="lc-check-text">Are they still checking in with L&amp;D and leadership, or have those touchpoints quietly stopped?</span>
+    </div>
+    <div class="lc-check-item" onclick="this.classList.toggle('checked')">
+      <span class="lc-check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="lc-check-text">Are they attending Learning Lift-Off and Flight School, or have they decided they're past needing it?</span>
+    </div>
+    <div class="lc-check-item" onclick="this.classList.toggle('checked')">
+      <span class="lc-check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="lc-check-text">Do they know about the change from B2B Level 2 and Level 3?</span>
+    </div>
+    <div class="lc-check-item" onclick="this.classList.toggle('checked')">
+      <span class="lc-check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="lc-check-text">Are they taking advantage of industry changes like Visa CEDP?</span>
+    </div>
+    <div class="lc-check-item" onclick="this.classList.toggle('checked')">
+      <span class="lc-check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="lc-check-text">Are they aware of the Amex OptBlue annual minimum increases and what that means for their accounts?</span>
+    </div>
+    <div class="lc-check-item" onclick="this.classList.toggle('checked')">
+      <span class="lc-check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="lc-check-text">Do they have a specific next milestone, or are they just repeating last quarter?</span>
+    </div>
+    </div>
+
+    <div class="lc-clear-row">
+      <button class="lc-clear-btn" onclick="document.querySelectorAll('#lc-checklist-03 .lc-check-item').forEach(function(i){i.classList.remove('checked');})">Clear All</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
